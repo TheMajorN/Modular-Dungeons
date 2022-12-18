@@ -1,6 +1,7 @@
 package com.themajorn.modulardungeons;
 
 import com.mojang.logging.LogUtils;
+import com.themajorn.modulardungeons.core.registry.ModEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -23,6 +24,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import software.bernie.geckolib.GeckoLib;
 
 @Mod(ModularDungeons.MODID)
 public class ModularDungeons
@@ -33,10 +35,11 @@ public class ModularDungeons
     public ModularDungeons() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-
+        ModEntities.ENTITIES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+        GeckoLib.initialize();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
