@@ -21,7 +21,7 @@ import software.bernie.geckolib.GeckoLib;
 @Mod(ModularDungeons.MODID)
 public class ModularDungeons
 {
-    public static final String MODID = "assets/modulardungeons";
+    public static final String MODID = "modulardungeons";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ModularDungeons() {

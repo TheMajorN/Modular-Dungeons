@@ -8,10 +8,12 @@ import net.minecraft.world.level.Level;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 
 public class Goblin extends Monster implements GeoAnimatable {
 
+    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     public Goblin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
@@ -30,7 +32,7 @@ public class Goblin extends Monster implements GeoAnimatable {
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return null;
+        return this.factory;
     }
 
     @Override
